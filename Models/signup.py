@@ -1,8 +1,20 @@
 from sqlalchemy import Integer, String, ForeignKey, DateTime, func
 from sqlalchemy.orm import mapped_column, Mapped, DeclarativeBase
 from sqlalchemy.ext.declarative import declared_attr
+from datetime import datetime
 from typing import Optional
-from sqlalchemy import BaseModel
+
+class Base(DeclarativeBase):
+    pass
+
+class Base(DeclarativeBase):
+    pass
+
+class BaseModel:
+    @declared_attr
+    def __tablename__(cls):
+        return cls.__name__.lower()
+
 
 class Base(DeclarativeBase):
     pass

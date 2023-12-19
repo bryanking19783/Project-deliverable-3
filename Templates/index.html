@@ -1,20 +1,24 @@
-<html lang="en">
-  <head>
+{% extends "base.html" %}
+  {% block head %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restraunt</title>
-    <link
-      rel="stylesheet"
+    {% endblock head %}
+    {% block stylesheets %}
+      <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
       integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+  
+    rel="stylesheet" href="../static/index.css" 
     />
-    <link rel="stylesheet" href="../static/index.css"/>
-  </head>
-  <body>
-    <div class="header"></div>
+    {% endblock stylesheets %}
+    
+    
+    {% block content %}
+    <div class="header">
     <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
     <label for="openSidebarMenu" class="sidebarIconToggle">
       <div class="spinner diagonal part-1"></div>
@@ -24,9 +28,8 @@
     <div id="sidebarMenu">
       <ul class="sidebarMenuInner">
         <li>Horizon Fakoya <span>Owner</span></li>
-        <li><a href="" target="_blank">#</a></li>
-        <li><a href="signup.html" target="_blank">sign-up</a></li>
-        <li><a href="Login.html" target="_blank">log-in</a></li>
+        <li><a href="/signup" target="_blank">sign-up</a></li>
+        <li><a href="/Login" target="_blank">log-in</a></li>
       </ul>
     </div>
     <nav class="navbar">
@@ -260,6 +263,7 @@
         </div>
       </div>
     </section>
+    {% endblock content %}
     <section id="contact">
       <div class="contact-container container">
         <div class="contact-img">
@@ -279,15 +283,27 @@
         </div>
       </div>
     </section>
-    <footer id="footer">
-      <h2>Restraunt &copy; all rights reserved</h2>
+    {% block footer %}
+    <footer id="footer" >
+      
+
+       <h2>Restraunt &copy; all rights reserved </h2> 
+      
+      
+    
     </footer>
-  </body>
+    {% endblock footer %}
+    
+    
   <!-- 
     .................../ JS Code for smooth scrolling /...................... -->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     
+     
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+    {% block javascripts %}
   <script>
+     
     $(document).ready(function () {
       // Add smooth scrolling to all links
       $("a").on("click", function (event) {
@@ -311,8 +327,13 @@
               window.location.hash = hash;
             }
           );
+          
         } // End if
       });
     });
-  </script>
-</html>
+
+    </script>
+
+  {% endblock javascripts %}
+  
+  
